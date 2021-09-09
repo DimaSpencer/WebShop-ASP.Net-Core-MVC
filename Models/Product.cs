@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace XESShop.Models
 {
-    public class Product
+    public class Product : IEvaluated
     {
         public int Id { get; set; }
 
@@ -20,6 +21,23 @@ namespace XESShop.Models
         public Category Category { get; set; }
         public int ManufacturerId { get; set; }
         public Manufacturer Manufacturer { get; set; }
+
+        public List<Comment> Сomments { get; set; }
+
+        [NotMapped]
+        public double AverageRating
+        {
+            get
+            {
+                double all = 0;
+                double commentsCount = Сomments.Count;
+
+                Сomments.ForEach(c => all += c.Grade);
+
+                double averageRating = all / commentsCount;
+                return averageRating;
+            }
+        }
 
         public async Task SetPictureAsync(FileSaver fileSaver, IEnumerable<IFormFile> files)
         {

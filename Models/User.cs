@@ -11,5 +11,7 @@ namespace XESShop.Models
         public int AvatarId { get; set; }
         public UserAvatar Avatar { get; set; }
         public Roles Role { get; set; }
+
+        public List<Comment> Comments { get; set; }
     }
 }
