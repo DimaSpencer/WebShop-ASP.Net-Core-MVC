@@ -85,3 +85,4 @@ C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\XESShop.dll
 C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\ref\XESShop.dll
 C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\XESShop.pdb
 C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\XESShop.genruntimeconfig.cache
+C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\Razor\Views\Error\PageNotFound.cshtml.g.cs

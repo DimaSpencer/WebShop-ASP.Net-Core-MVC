@@ -13,7 +13,6 @@ using XESShop.Models.ProductFiltersAndSorters;
 
 namespace XESShop.Controllers
 {
-
     [Authorize]
     [Route("[controller]/[action]")]
     public class ProductController : Controller

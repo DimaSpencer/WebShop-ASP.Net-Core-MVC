@@ -23,7 +23,7 @@ namespace XESShop.Models.ProductFiltersAndSorters
         public IEnumerable<Product> Filter(IEnumerable<Product> products)
         {
             products = products
-                .Where(p => p.Category.Contains(_category))
+                .Where(p => p.CategoryId == _category.Id)
                 .ToList();
 
             products = _productFilter?.Filter(products);

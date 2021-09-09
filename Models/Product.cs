@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,14 +8,23 @@ namespace XESShop.Models
 {
     public class Product
     {
-        public int Id { get; }
+        public int Id { get; set; }
 
-        public string Name { get; }
-        public string Description { get; }
-        public double Price { get; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
 
-        public List<Picture> Photo { get; } = new List<Picture>();
-        public List<Category> Category { get; } = new List<Category>();
-        public Manufacturer Manufacturer { get; }
+        public List<Picture> Photos { get; set; } = new List<Picture>();
+
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+        public int ManufacturerId { get; set; }
+        public Manufacturer Manufacturer { get; set; }
+
+        public async Task SetPictureAsync(FileSaver fileSaver, IEnumerable<IFormFile> files)
+        {
+            foreach (var file in files)
+                await fileSaver.CreateAndSavePictureAsync<Picture>(file, "/images/products/");
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace XESShop.ViewModels
         public decimal Price { get; set; }
 
         public List<IFormFile> Photos { get; set; }
-        public List<Category> Category { get; set; }
+        public Category Category { get; set; }
         public Manufacturer Manufacturer { get; set; }
     }
 }

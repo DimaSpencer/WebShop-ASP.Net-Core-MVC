@@ -16,18 +16,20 @@ namespace XESShop.Models
             _environment = enviroment;
         }
 
-        public async Task<T> CreateAndSavePictureAsync<T>(IFormFile file, string pictureName)
+        public async Task<T> CreateAndSavePictureAsync<T>(IFormFile file, string directoryPaht)
             where T : Picture, new()
         {
             string webRootPath = _environment.ContentRootPath;
-            pictureName = pictureName.Replace(' ', '_');
 
-            using (var fileStream = new FileStream(webRootPath + pictureName, FileMode.Create))
+            string pictureName = file.FileName.Replace(' ', '_');
+            string picturePath = directoryPaht + pictureName;
+
+            using (var fileStream = new FileStream(webRootPath + picturePath, FileMode.Create))
             {
                 await file.CopyToAsync(fileStream);
             }
 
-            return new T { Name = file.FileName, Path = pictureName };
+            return new T { Name = pictureName, Path = picturePath };
         }
     }
 }

@@ -19,22 +19,53 @@ namespace XESShop.Controllers
             _fileSaver = fileSaver;
         }
 
+        [HttpGet]
+        public IActionResult AddManufacturer() => View();
+        [HttpGet]
+        public IActionResult AddCategory() => View();
+        [HttpGet]
+        public IActionResult AddProduct() => View();
+
         [HttpPost]
         public async Task<IActionResult> AddManufacturer(ManufacturerViewModel manufacturerViewModel)
         {
-            return Ok();
+            if (ModelState.IsValid)
+            {
+                Manufacturer manufacturer = new Manufacturer { Name = manufacturerViewModel.Name };
+                await manufacturer.SetPictureAsync(_fileSaver, manufacturerViewModel.Logo);
+
+                _dbContext.Manufacturers.Add(manufacturer);
+                await _dbContext.SaveChangesAsync();
+
+                return View();
+            }
+            else
+            {
+                return View(manufacturerViewModel);
+            }
         }
         [HttpPost]
-        public async Task<IActionResult> CreateCategory(CategoryViewModel categoryViewModel)
+
+        public async Task<IActionResult> AddCategory(CategoryViewModel categoryViewModel)
         {
-            return Ok();
+            if (ModelState.IsValid)
+            {
+                Category category = new Category() { Name = categoryViewModel.Name };
+                await category.SetPictureAsync(_fileSaver, categoryViewModel.Image);
+
+                _dbContext.Categories.Add(category);
+                await _dbContext.SaveChangesAsync();
+
+                return View();
+            }
+            else
+            {
+                return View(categoryViewModel);
+            }
         }
 
-        [HttpGet]
-        public IActionResult CreateProduct() => View();
-
         [HttpPost]
-        public async Task<IActionResult> CreateProduct(ProductViewModel productViewModel)
+        public async Task<IActionResult> AddProduct(ProductViewModel productViewModel)
         {
             if (ModelState.IsValid)
             {

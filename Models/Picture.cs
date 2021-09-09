@@ -1,4 +1,8 @@
-﻿namespace XESShop.Models
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
+
+namespace XESShop.Models
 {
     public class Picture
     {
