@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace XESShop.Models.ItemsFiltersAndSorters
+namespace XESShop.Models.ProductFiltersAndSorters
 {
     public class FilterByPrice : IProductFilter
     {
@@ -25,13 +25,14 @@ namespace XESShop.Models.ItemsFiltersAndSorters
             _to = to;
         }
 
-        public void Filter(IList<IProduct> products)
+        public IEnumerable<Product> Filter(IEnumerable<Product> products)
         {
             products = products
                 .Where(p => p.Price <= _from && p.Price >= _to)
                 .ToList();
 
-            _productFilter?.Filter(products);
+            products = _productFilter?.Filter(products);
+            return products;
         }
     }
 }

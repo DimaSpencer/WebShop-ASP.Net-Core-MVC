@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace XESShop.Models.ItemsFiltersAndSorters
+namespace XESShop.Models.ProductFiltersAndSorters
 {
     public class FilterByManufacturer : IProductFilter
     {
@@ -20,13 +20,14 @@ namespace XESShop.Models.ItemsFiltersAndSorters
             _manufacturer = manufacturer;
         }
 
-        public void Filter(IList<IProduct> products)
+        public IEnumerable<Product> Filter(IEnumerable<Product> products)
         {
             products = products
                 .Where(p => p.Manufacturer.Id == _manufacturer.Id)
                 .ToList();
 
-            _productFilter?.Filter(products);
+            products = _productFilter?.Filter(products);
+            return products;
         }
     }
 }

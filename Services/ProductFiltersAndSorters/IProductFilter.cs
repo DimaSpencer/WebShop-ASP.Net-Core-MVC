@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace XESShop.Models.ItemsFiltersAndSorters
+namespace XESShop.Models.ProductFiltersAndSorters
 {
     public interface IProductFilter
     {
-        void Filter(IList<IProduct> products);
+        IEnumerable<Product> Filter(IEnumerable<Product> products);
     }
 }

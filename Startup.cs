@@ -25,9 +25,10 @@ namespace XESShop
             Configuration = configuration;
         }
 
-
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<FileSaver>();
+
             services.AddHttpContextAccessor();
 
             services.AddDbContext<ApplicationDbContext>(options =>
