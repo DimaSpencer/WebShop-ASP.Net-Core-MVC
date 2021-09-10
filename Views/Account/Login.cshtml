@@ -1,0 +1,23 @@
+﻿@model XESShop.ViewModels.LoginViewModel
+
+<form method="post" asp-action="Login" asp-controller="Account">
+    <div asp-validation-summary="ModelOnly" />
+    <label asp-for="Email"></label>
+    <div>
+        <input type="email" asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <label asp-for="Password"></label>
+    <div>
+        <input type="password" asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="RememberMe"></label>
+        <input type="checkbox" asp-for="RememberMe" />
+        <span asp-validation-for="RememberMe"></span>
+    </div>
+    <div>
+        <input type="submit" />
+    </div>
+</form>

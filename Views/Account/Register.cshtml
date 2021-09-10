@@ -1,0 +1,28 @@
+﻿@model XESShop.ViewModels.RegisterViewModel
+
+<form method="post" asp-action="Register" asp-controller="Account">
+    <div asp-validation-summary="ModelOnly" />
+    <label asp-for="Name"></label>
+    <div>
+        <input type="text" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <label asp-for="Email"></label>
+    <div>
+        <input type="email" asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <label asp-for="Password"></label>
+    <div>
+        <input type="password" asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <label asp-for="ConfirmPassword"></label>
+    <div>
+        <input type="password" asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <div>
+        <input type="submit"/>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+﻿@model Product
+
+<div class="product">
+    <ul class="product__list">
+        <li>@Model.Name</li>
+        <li>@Model.BigName</li>
+        <li>@Model.Description</li>
+        <li>Manufacturer: @Model.Manufacturer.Name</li>
+        <li>Category: @Model.Category.Name</li>
+    </ul>
+    <form method="post" asp-action="AddToBasket" asp-controller="Product" asp-route-id="@Model.Id">
+        <button type="submit">Add to basket</button>
+    </form>
+</div>
