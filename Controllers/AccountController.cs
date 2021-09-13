@@ -50,7 +50,7 @@ namespace XESShop.Controllers
                         if (!string.IsNullOrEmpty(loginModel.ReturnUrl) && Url.IsLocalUrl(loginModel.ReturnUrl))
                             return Redirect(loginModel.ReturnUrl);
                         else
-                            return RedirectToAction("Info", "User");
+                            return RedirectToAction("Index", "Home");
                     }
                 }
                 ModelState.AddModelError("", "Incorrect login or password");
@@ -66,7 +66,12 @@ namespace XESShop.Controllers
                 User user = await _userManager.FindByEmailAsync(registerModel.Email);
                 if (user == null)
                 {
-                    user = new User { UserName = registerModel.Name, Email = registerModel.Email };
+                    user = new User
+                    {
+                        UserName = registerModel.Name,
+                        Email = registerModel.Email,
+                        //Basket = new Basket() { User = user }
+                    };
                     var result = await _userManager.CreateAsync(user, registerModel.Password);
 
                     if (result.Succeeded)

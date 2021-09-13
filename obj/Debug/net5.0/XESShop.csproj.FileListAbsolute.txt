@@ -89,3 +89,5 @@ C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\Razor\Views\Erro
 C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\Razor\Views\Product\Get.cshtml.g.cs
+C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\Razor\Views\Shared\_ItemsLoadPartial.cshtml.g.cs
+C:\Users\Дима\source\repos\XESShop\XESShop\obj\Debug\net5.0\Razor\Views\Order\ToOrder.cshtml.g.cs

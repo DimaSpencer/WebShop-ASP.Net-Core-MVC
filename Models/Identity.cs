@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace XESShop.Models
 {
@@ -15,10 +16,12 @@ namespace XESShop.Models
 
         public int Age { get; set; }
 
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string Email { get; set; }
 
         public int AddressId { get; set; }
         public Address Address { get; set; }
+
+        public List<Order> Orders { get; set; } = new List<Order>();
     }
 }

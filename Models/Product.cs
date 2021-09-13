@@ -23,7 +23,9 @@ namespace XESShop.Models
         public int ManufacturerId { get; set; }
         public Manufacturer Manufacturer { get; set; }
 
-        public List<Comment> Сomments { get; set; }
+        public List<Comment> Сomments { get; set; } = new List<Comment>();
+
+        //public List<Basket> Baskets { get; set; } = new List<Basket>();
 
         [NotMapped]
         public double AverageRating

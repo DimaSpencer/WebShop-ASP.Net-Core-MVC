@@ -1,8 +1,36 @@
-﻿@{
+﻿@using XESShop.Data
+
+@inject ApplicationDbContext DbContext
+@model IEnumerable<Product>
+
+@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="filter">
+    <form class="filter__form form" asp-action="FilterProducts" asp-controller="Home">
+        <div class="form__item item">
+            <div class="filter__manufacturer_name">Manufacturer name</div>
+            <select name="ManufacturerId">
+                <option value="" disabled selected>Все</option>
+                @foreach (var manufacturer in DbContext.Manufacturers)
+                {
+                    <option value="@manufacturer.Id">@manufacturer.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form__item item">
+            <div class="filter__category_name">Category</div>
+            <select name="CategoryId">
+                <option value="" disabled selected>Все</option>
+                @foreach (var category in DbContext.Categories)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form__item item">
+            <button class="item__button" type="submit">Confirm filtered</button>
+        </div>
+    </form>
 </div>
+@await Html.PartialAsync("_ItemsLoadPartial", Model);

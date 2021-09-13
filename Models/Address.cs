@@ -10,5 +10,8 @@ namespace XESShop.Models
         public Identity Identity { get; set; }
 
         public string Street { get; set; }
+        public string City { get; set; }
+
+        public string Postcode { get; set; }
     }
 }

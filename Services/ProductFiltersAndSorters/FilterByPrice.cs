@@ -8,10 +8,10 @@ namespace XESShop.Models.ProductFiltersAndSorters
     {
         private readonly IProductFilter _productFilter;
 
-        private readonly int _from;
-        private readonly int _to;
+        private readonly decimal _from;
+        private readonly decimal _to;
 
-        public FilterByPrice(int from, int to, IProductFilter productFilter = null)
+        public FilterByPrice(decimal from, decimal to, IProductFilter productFilter = null)
         {
             #region CheckInputData
             if (from < 0 || to < 0)
@@ -31,7 +31,7 @@ namespace XESShop.Models.ProductFiltersAndSorters
                 .Where(p => p.Price <= _from && p.Price >= _to)
                 .ToList();
 
-            products = _productFilter?.Filter(products);
+            products = _productFilter?.Filter(products) ?? products;
             return products;
         }
     }

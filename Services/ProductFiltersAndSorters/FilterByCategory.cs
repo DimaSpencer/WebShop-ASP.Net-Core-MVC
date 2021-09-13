@@ -26,7 +26,7 @@ namespace XESShop.Models.ProductFiltersAndSorters
                 .Where(p => p.CategoryId == _category.Id)
                 .ToList();
 
-            products = _productFilter?.Filter(products);
+            products = _productFilter?.Filter(products) ?? products;
             return products;
         }
     }

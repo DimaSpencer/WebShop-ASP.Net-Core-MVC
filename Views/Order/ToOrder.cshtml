@@ -1,0 +1,53 @@
+﻿@model XESShop.ViewModels.OrderViewModel 
+
+<form class="order-form" method="post" asp-action="ToOrder" asp-controller="Order">
+    <div class="validate" asp-validation-summary="ModelOnly"></div>
+    <div class="order-form__item item">
+        <div class="item__description">Имя</div>
+        <input class="item__input" type="text" asp-for="FirstName" />
+        <span class="item__validation-text" asp-validation-for="FirstName"></span>
+    </div>
+    <div class="order-form__item item">
+        <div class="item__description">Фамилия</div>
+        <input class="item__input" asp-for="LastName" type="text" />
+        <span class="item__validation-text" asp-validation-for="LastName"></span>
+    </div>
+    <div class="order-form__item item">
+        <div class="item__description">Отчество</div>
+        <input class="item__input" type="text" asp-for="SecondName" />
+        <span class="item__validation-text" asp-validation-for="SecondName"></span>
+    </div>
+    <div class="order-form__item item">
+        <div class="item__description">Контактный телефон</div>
+        <input class="item__input" type="tel" asp-for="Phone" />
+        <span class="item__validation-text" asp-validation-for="Phone"></span>
+    </div>
+    <div class="order-form__item item">
+        <div class="item__description">Город</div>
+        <select asp-for="City">
+            <option value="Киев">Киев</option>
+            <option value="Тернополь">Тернополь</option>
+            <option value="Львов">Львов</option>
+            <option value="Луцк">Луцк</option>
+        </select>
+        <span class="item__validation-text" asp-validation-for="City"></span>
+    </div>
+    <div class="order-form__item item">
+        <div class="item__description">Улица</div>
+        <input type="text" asp-for="Street"/>
+        <span class="item__validation-text" asp-validation-for="Street"></span>
+    </div>
+    <div class="order-form__item item">
+        <div class="item__description">Почтовый индекс</div>
+        <input type="number" min="0" asp-for="Postcode" />
+        <span class="item__validation-text" asp-validation-for="Postcode"></span>
+    </div>
+    <div class="order-form__item item">
+        <div class="item__description">Email</div>
+        <input class="item__input" type="email" asp-for="Email" />
+        <span class="item__validation-text" asp-validation-for="Email"></span>
+    </div>
+    <div class="order-form__item item">
+        <input class="item__submit" type="submit" />
+    </div>
+</form>

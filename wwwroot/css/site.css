@@ -69,3 +69,18 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+.product__list li:first-child{
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.form{
+    display: flex;
+    flex-flow: row wrap;
+}
+.item__validation-text{
+    color: red;
+}
+.input-validation-error{
+    border-color: red;
+}
